@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "../Components/Header";
 
 export default function Login() {
@@ -7,6 +8,8 @@ export default function Login() {
     passwordInput: "",
     button: true,
   });
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     validateUsernameAndPassword();
@@ -35,13 +38,15 @@ export default function Login() {
 
   const onBtnClick = (event) => {
     event.preventDefault();
+    //valida login e senha
+    navigate('/users');
   }
 
   return (
     <>
       <Header/>
       <form action="" 
-        method="post"
+        // method="post"
       >
         <div>
           <div className="formLabel">
@@ -78,7 +83,7 @@ export default function Login() {
         <div>
           <button 
             type="submit"
-            onClick={() => onBtnClick()}
+            onClick={onBtnClick}
             disabled={button}
           >
             Submit

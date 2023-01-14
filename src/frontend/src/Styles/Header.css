@@ -1,17 +1,30 @@
+header{
+  display: flex;
+  justify-content: space-around;
+  /* align-items: center; */
+  background-color: #8d99ae;
+}
+
+.title {
+  display: flex;
+  margin-left: 50px;
+  align-items: flex-start;
+  flex-flow: column;
+}
+
 #sharenergyLogo {
   max-width: 200px;
   max-height: 50px;
   margin-bottom: 20px;
 }
 
-.title {
-  margin-left: 50px;  
-}
-
-header{
+.navigation {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  flex-flow: column;
-  background-color: #8d99ae;
+  flex-direction: column;
+}
+
+.link {
+  margin: 5px;
 }

@@ -24,6 +24,31 @@ export default function Dogs() {
     setChosenDog(dogsData[randomNumber])
   }
 
+  const photoOrVideo = () => {
+    if(chosenDog.includes('mpeg') || 
+      chosenDog.includes('webm') || 
+      chosenDog.includes('mp4')) {
+        console.log('oi')
+      return (
+        <video
+          controls
+          autoPlay
+          width="400">
+          <source
+            src={ `https://random.dog/${chosenDog}` }
+            type="video/mp4" />
+        </video>
+      )
+    }
+    return (
+      <img
+        id="dogsImg"
+        src={ `https://random.dog/${chosenDog}` }
+        alt={ 'Fluffy' }
+      />
+    )
+  }
+
   return(
     <>
       <Header />
@@ -34,10 +59,9 @@ export default function Dogs() {
         >
           Another dog
         </button>
-        <img
-          src={`https://random.dog/${chosenDog}`}
-          alt={ 'Fluffy' }
-        />
+        {
+          photoOrVideo()
+        }
       </div>
     </>
   )
