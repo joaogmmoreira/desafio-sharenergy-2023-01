@@ -5,11 +5,14 @@ import { fetchUsersAPI } from "../Services/UserService";
 import Loading from "../Components/Loading";
 import '../Styles/Users.css';
 
+//paginação dos resultados
+
 export default function Users() {
 
   const [loading, setLoading] = useState(true);
   const [userData, setUserData] = useState([]);
   const [userData2, setUserData2] = useState([]);
+  // const [userData3, setUserData3] = useState([]);
   const [search, setSearch] = useState({
     searchBoxInput: "",
   });
@@ -20,9 +23,11 @@ export default function Users() {
       setLoading(false);
       setUserData(users.results);
       setUserData2(users.results);
+  
       return users;
     }
     generateUsers();
+    // splitPages();
   }, []);
 
   useEffect(() => {
@@ -46,6 +51,13 @@ export default function Users() {
     }) 
   };
 
+  // const splitPages = () => {
+  //   while(userData2.length > 0) {
+  //       setUserData3(userData2.splice(0, 14));
+  //     }
+  //   console.log(userData3.splice(0, 14))
+  // }
+
   const filterUsers = () => {
     const filteredResults =  userData.filter((element) => {
       const { name, email, login } = element;
@@ -57,8 +69,8 @@ export default function Users() {
       email.toLowerCase().includes(searchInputToLC) ||
       login.username.toLowerCase().includes(searchInputToLC);
     });
-    console.log(filteredResults)
     setUserData2(filteredResults);
+
     return filteredResults
   }
 
