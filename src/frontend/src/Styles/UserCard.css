@@ -1,0 +1,12 @@
+.userCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 20px;
+  padding: 50px;
+  width: 200px;
+  border: solid 5px rgb(0, 0, 0, 0.4);
+  box-shadow: 10px 20px #eaeaea;
+  border-radius: 20px;
+}

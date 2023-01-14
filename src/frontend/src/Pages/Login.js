@@ -1,7 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Header from "../Components/Header";
+// validação dos campos de login e senha
+// botao de login
 
-function Login() {
+
+export default function Login() {
   const [form, setForm] = useState({
     usernameInput: "",
     passwordInput: "",
@@ -84,5 +87,3 @@ function Login() {
     </>
   );
 }
-
-export default Login;
