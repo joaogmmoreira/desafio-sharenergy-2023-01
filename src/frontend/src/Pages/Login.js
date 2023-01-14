@@ -1,8 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "../Components/Header";
-// validação dos campos de login e senha
-// botao de login
-
 
 export default function Login() {
   const [form, setForm] = useState({
@@ -10,6 +7,10 @@ export default function Login() {
     passwordInput: "",
     button: true,
   });
+
+  useEffect(() => {
+    validateUsernameAndPassword();
+  }, [form.usernameInput, form.passwordInput]);
 
   const [button, setButton] = useState(true);
 

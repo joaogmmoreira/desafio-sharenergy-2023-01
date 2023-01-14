@@ -10,20 +10,20 @@ export default function Cats() {
     setHttpStatus(value);
   }
 
-  const optionsForSelect = () => {
-    const options = [
-      100, 101, 102, 103, 104, 
-      200, 201, 202, 203, 204, 
-      300, 301, 302, 303, 304,
-      400, 401, 402, 403, 404,
-      500, 501, 502, 503, 504]
+  // const optionsForSelect = () => {
+  //   const options = [
+  //     100, 101, 102, 103, 104, 
+  //     200, 201, 202, 203, 204, 
+  //     300, 301, 302, 303, 304,
+  //     400, 401, 402, 403, 404,
+  //     500, 501, 502, 503, 504]
 
-      return options.map((element) => {
-        return (
-          <option key={`${element}`} value={`${element}`}>{ element }</option>
-        )
-      })
-  }
+  //     return options.map((element) => {
+  //       return (
+  //         <option key={`${element}`} value={`${element}`}>{ element }</option>
+  //       )
+  //     })
+  // }
 
   return (
     <>

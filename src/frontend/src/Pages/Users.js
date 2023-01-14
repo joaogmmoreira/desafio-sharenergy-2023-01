@@ -5,7 +5,7 @@ import { fetchUsersAPI } from "../Services/UserService";
 import Loading from "../Components/Loading";
 import '../Styles/Users.css';
 
-//paginação dos resultados
+// falta paginação dos resultados
 
 export default function Users() {
 

@@ -1,4 +1,4 @@
-.catBody {
+.dogBody {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -6,8 +6,11 @@
   margin: 20px;
 }
 
-#htmlStatusCat {
+img {
+  max-width: 500px;
+  max-height: 550px;
+}
+
+#dogButton {
   margin: 20px;
-  width: 120px;
-  text-align: center;
 }
