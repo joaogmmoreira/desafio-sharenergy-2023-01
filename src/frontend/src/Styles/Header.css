@@ -1,0 +1,17 @@
+#sharenergyLogo {
+  max-width: 200px;
+  max-height: 50px;
+  margin-bottom: 20px;
+}
+
+.title {
+  margin-left: 50px;  
+}
+
+header{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-flow: column;
+  background-color: #8d99ae;
+}
