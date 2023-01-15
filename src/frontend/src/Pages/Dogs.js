@@ -11,7 +11,7 @@ export default function Dogs() {
     const generateDogs = async () => {
       const dogs = await fetchDogsAPI();
       
-      setDogsData(dogs.slice(0, 500));
+      setDogsData(dogs);
   
       return dogs;
     }
