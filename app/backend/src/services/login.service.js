@@ -1,5 +1,6 @@
 const loginValidation = require('../validations/login.validation');
 const loginModel = require('../models/login.model');
+const jwt = require('../utils/jwt.util');
 
 const validateLogin = async (username, password) => {
 
@@ -22,9 +23,9 @@ const validateLogin = async (username, password) => {
 
   // const { password: _, ...userWithoutPassword } = user.dataValues;
 
-  // const token = jwt.createToken(username, password);
+  const token = jwt.createToken(username, password);
 
-  return { type: null, message: user.message };
+  return { type: null, message: token };
 
 
 

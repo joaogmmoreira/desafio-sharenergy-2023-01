@@ -4,7 +4,7 @@ const validateBody = (email, password) => {
     return { type: 400, message: 'Some required fields are missing' };
   }
   
-  return { type: null, message: 'foi' };
+  return { type: null, message: 'OK' };
 };
 
 module.exports = {
