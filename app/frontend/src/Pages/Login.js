@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../Components/Header";
+import { requestLogin, setToken, requestData } from "../Services/LoginService";
 import '../Styles/Login.css';
 
 export default function Login() {
@@ -9,6 +10,7 @@ export default function Login() {
     passwordInput: "",
     button: true,
   });
+  const [checkbox, setCheckbox] = useState(false);
 
   const navigate = useNavigate();
 
@@ -37,7 +39,7 @@ export default function Login() {
     validateUsernameAndPassword();
   };
 
-  const onBtnClick = (event) => {
+  const onBtnClick = async (event) => {
     event.preventDefault();
     //valida login e senha
     navigate('/users');
@@ -80,7 +82,12 @@ export default function Login() {
             </div>
           </div>
           <div>
-            <input type="checkbox" name="checkbox" id="checkbox"/>
+            <input 
+              type="checkbox" 
+              name="checkbox" 
+              id="checkbox"
+              onChange={setCheckbox}
+            />
             <label htmlFor="checkbox">Remember me</label>
           </div>
           <div>

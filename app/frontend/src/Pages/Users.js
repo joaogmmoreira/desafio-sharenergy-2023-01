@@ -4,35 +4,45 @@ import { useEffect, useState } from "react";
 import { fetchUsersAPI } from "../Services/UserService";
 import Loading from "../Components/Loading";
 import '../Styles/Users.css';
-
-// falta paginação dos resultados
+import { Link } from "react-router-dom";
 
 export default function Users() {
 
   const [loading, setLoading] = useState(true);
   const [userData, setUserData] = useState([]);
   const [userData2, setUserData2] = useState([]);
-  // const [userData3, setUserData3] = useState([]);
+  const [page, setPage] = useState(1);
+  const [disable, setDisable] = useState(true);
   const [search, setSearch] = useState({
     searchBoxInput: "",
   });
 
   useEffect(() => {
     const generateUsers = async () => {
-      const users = await fetchUsersAPI();
+      const users = await fetchUsersAPI(page.page);
       setLoading(false);
       setUserData(users.results);
-      setUserData2(users.results);
+      setUserData2(users.results);      
   
       return users;
     }
     generateUsers();
-    // splitPages();
   }, []);
 
   useEffect(() => {
     filterUsers();
   }, [search.searchBoxInput]);
+
+  useEffect(() => {
+    const generateUsers = async () => {
+      const users = await fetchUsersAPI(page);
+      setUserData(users.results);
+      setUserData2(users.results);
+    }
+    generateUsers();
+    pageButtons();
+    disablePreviousButton();
+  }, [page]);
 
   const renderUsers = () => {
     return userData2.map((element) => {
@@ -50,13 +60,6 @@ export default function Users() {
       )
     }) 
   };
-
-  // const splitPages = () => {
-  //   while(userData2.length > 0) {
-  //       setUserData3(userData2.splice(0, 14));
-  //     }
-  //   console.log(userData3.splice(0, 14))
-  // }
 
   const filterUsers = () => {
     const filteredResults =  userData.filter((element) => {
@@ -84,6 +87,25 @@ export default function Users() {
     filterUsers();
   };
 
+  const pageButtons = async (event) => {
+    const { innerText } = event.target;
+    // console.log(button.nextButton)
+    setLoading(true);
+
+    if (innerText === 'Previous') setPage(page - 1);     
+    
+    if (innerText === 'Next') setPage(page + 1); 
+
+    setLoading(false);
+  }
+
+  const disablePreviousButton = () => {
+    if (page === 1) {
+      setDisable(true);
+    } else {
+      setDisable(false);
+    }
+  }
 
   return (
     <>
@@ -101,7 +123,31 @@ export default function Users() {
       </div>
       <div id="userCardsDiv">
         { loading ? <Loading/> : renderUsers() }
-      </div>
+      </div>  
+      <div className="pageButtons">  
+        <div className="previousButton">
+          <Link>
+            <button
+              className="previousButton"
+              disabled={ disable }
+              onClick={ pageButtons }
+            >
+              Previous 
+            </button>
+          </Link>
+        </div>
+        <span>{ `Page ${page}` }</span>
+        <div className="nextButton">
+          <Link>
+            <button
+              className="nextButton"
+              onClick={ pageButtons }
+            >
+              Next 
+            </button>
+          </Link>
+        </div>
+      </div> 
     </>
   )
 }
