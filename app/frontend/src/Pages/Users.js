@@ -19,7 +19,7 @@ export default function Users() {
 
   useEffect(() => {
     const generateUsers = async () => {
-      const users = await fetchUsersAPI(page.page);
+      const users = await fetchUsersAPI(page);
       setLoading(false);
       setUserData(users.results);
       setUserData2(users.results);      
@@ -38,9 +38,8 @@ export default function Users() {
       const users = await fetchUsersAPI(page);
       setUserData(users.results);
       setUserData2(users.results);
-    }
+    }    
     generateUsers();
-    pageButtons();
     disablePreviousButton();
   }, [page]);
 
@@ -89,14 +88,10 @@ export default function Users() {
 
   const pageButtons = async (event) => {
     const { innerText } = event.target;
-    
-    setLoading(true);
 
     if (innerText === 'Previous') setPage(page - 1);     
     
     if (innerText === 'Next') setPage(page + 1); 
-
-    setLoading(false);
   }
 
   const disablePreviousButton = () => {

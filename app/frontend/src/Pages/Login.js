@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../Components/Header";
-import { requestLogin, setToken, requestData } from "../Services/LoginService";
+// import { requestLogin, setToken, requestData } from "../Services/LoginService";
 import '../Styles/Login.css';
+
+//remember me com token jwt
 
 export default function Login() {
   const [form, setForm] = useState({
