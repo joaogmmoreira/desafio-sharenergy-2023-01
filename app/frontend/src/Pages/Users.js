@@ -89,7 +89,7 @@ export default function Users() {
 
   const pageButtons = async (event) => {
     const { innerText } = event.target;
-    // console.log(button.nextButton)
+    
     setLoading(true);
 
     if (innerText === 'Previous') setPage(page - 1);     
