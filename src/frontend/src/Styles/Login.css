@@ -1,0 +1,48 @@
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.loginForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 50px;
+  margin: 20px;
+  padding: 30px;
+  width: 200px;
+  border: solid 5px rgb(0, 0, 0, 0.4);
+  box-shadow: 10px 20px #eaeaea;
+  border-radius: 20px;
+}
+
+.formLabel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+}
+
+.formInput {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.passwordInput {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+}
+
+#checkbox {
+  margin: 10px;
+}
+
+#submitBtn {
+  margin: 5px;
+}

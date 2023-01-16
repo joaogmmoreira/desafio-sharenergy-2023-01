@@ -1,8 +1,23 @@
-import { Link } from 'react-router-dom';
 import sharenergyLogo from '../Images/logo_color.png';
+import { useEffect } from "react";
+import Navigation from './Navigation';
 import '../Styles/Header.css';
 
 function Header() {
+  useEffect(() => {
+    warning();  
+  }, []);
+  
+  const warning = () => {
+    const { pathname } = window.location;
+
+    if (pathname !== '/') {
+      return(
+        <Navigation/>
+      )
+    }    
+  }
+
   return (
     <header>
       <div className='title'>
@@ -17,12 +32,9 @@ function Header() {
           />
         </div>
       </div>
-      <div className='navigation'>
-        <div className='link'><Link to="/users">Users</Link></div>
-        <div className='link'><Link to="/cats">Cats</Link></div>
-        <div className='link'><Link to="/dogs">Dogs</Link></div>
-        <div className='link'><Link to="/customers">Customers</Link></div>    
-      </div>
+      {
+        warning()
+      }
     </header>
   );
 }

@@ -1,34 +1,43 @@
 import Header from "../Components/Header";
 import { useEffect, useState } from "react";
 import { fetchDogsAPI } from "../Services/DogsService";
+import Loading from "../Components/Loading";
 import '../Styles/Dogs.css';
 
 export default function Dogs() {
   const [dogsData, setDogsData] = useState([]);
-  const [chosenDog, setChosenDog] = useState();
+  const [chosenDog, setChosenDog] = useState("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const generateDogs = async () => {
       const dogs = await fetchDogsAPI();
       
       setDogsData(dogs);
-  
-      return dogs;
+      setLoading(false);
+
     }
-    generateDogs();
-    pickingDogs();    
+    generateDogs();      
   }, []);
 
-  const pickingDogs = () => {
-    const randomNumber = Math.floor(Math.random() * dogsData.length);
-    setChosenDog(dogsData[randomNumber])
+  useEffect(() => {
+    pickingDogs();
+  }, [dogsData]);
+
+  const pickingDogs = async () => {
+    setLoading(true);
+    if (dogsData.length) {
+      const randomNumber = Math.floor(Math.random() * dogsData.length);
+      setChosenDog(dogsData[randomNumber])
+      
+      setLoading(false);
+    }
   }
 
   const photoOrVideo = () => {
     if(chosenDog.includes('mpeg') || 
       chosenDog.includes('webm') || 
       chosenDog.includes('mp4')) {
-        console.log('oi')
       return (
         <video
           controls
@@ -60,7 +69,7 @@ export default function Dogs() {
           Another dog
         </button>
         {
-          photoOrVideo()
+          loading ? <Loading/> : photoOrVideo()
         }
       </div>
     </>

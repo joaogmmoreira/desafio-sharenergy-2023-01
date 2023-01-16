@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../Components/Header";
+import '../Styles/Login.css';
 
 export default function Login() {
   const [form, setForm] = useState({
@@ -45,51 +46,55 @@ export default function Login() {
   return (
     <>
       <Header/>
-      <form action="" 
-        // method="post"
-      >
-        <div>
-          <div className="formLabel">
-            <label htmlFor="usernameInput">Username</label>
+      <div className="form">
+        <form action="" 
+          // method="post"
+          className="loginForm"
+        >
+          <div>
+            <div className="formLabel">
+              <label htmlFor="usernameInput">Username</label>
+            </div>
+            <div className="formInput">
+              <input
+                id="usernameInput" 
+                name="usernameInput" 
+                type="text"
+                placeholder="Type your username"
+                onChange={onFieldChange}
+              />
+            </div>
           </div>
-          <div className="formInput">
-            <input
-              id="usernameInput" 
-              name="usernameInput" 
-              type="text"
-              placeholder="Type your username"
-              onChange={onFieldChange}
-            />
+          <div>
+            <div className="formLabel">
+              <label htmlFor="passwordInput">Password</label>
+            </div>
+            <div className="formInput">
+              <input 
+                id="passwordInput" 
+                name="passwordInput" 
+                type="password"
+                placeholder="Type your password"
+                onChange={onFieldChange}
+              />
+            </div>
           </div>
-        </div>
-        <div>
-          <div className="formLabel">
-            <label htmlFor="passwordInput">Password</label>
+          <div>
+            <input type="checkbox" name="checkbox" id="checkbox"/>
+            <label htmlFor="checkbox">Remember me</label>
           </div>
-          <div className="formInput">
-            <input 
-              id="passwordInput" 
-              name="passwordInput" 
-              type="password"
-              placeholder="Type your password"
-              onChange={onFieldChange}
-            />
+          <div>
+            <button 
+              id="submitBtn"
+              type="submit"
+              onClick={onBtnClick}
+              disabled={button}
+            >
+              Submit
+            </button>
           </div>
-        </div>
-        <div>
-          <input type="checkbox" name="checkbox" id="checkbox"/>
-          <label htmlFor="checkbox">Remember me</label>
-        </div>
-        <div>
-          <button 
-            type="submit"
-            onClick={onBtnClick}
-            disabled={button}
-          >
-            Submit
-          </button>
-        </div>
-      </form>
+        </form>
+      </div>
     </>
   );
 }
