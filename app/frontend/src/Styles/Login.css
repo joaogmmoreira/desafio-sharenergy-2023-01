@@ -21,7 +21,7 @@
 
 .formLabel {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   margin: 5px;
 }
@@ -41,6 +41,14 @@
 
 #checkbox {
   margin: 10px;
+}
+
+.checkboxClass {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
 }
 
 #submitBtn {

@@ -1,10 +1,10 @@
+import React, { useEffect, useState } from "react";
+import { fetchUsersAPI } from "../Services/UserService";
+import { Link } from "react-router-dom";
 import Header from "../Components/Header";
 import UserCard from "../Components/UserCard";
-import { useEffect, useState } from "react";
-import { fetchUsersAPI } from "../Services/UserService";
 import Loading from "../Components/Loading";
 import '../Styles/Users.css';
-import { Link } from "react-router-dom";
 
 export default function Users() {
 

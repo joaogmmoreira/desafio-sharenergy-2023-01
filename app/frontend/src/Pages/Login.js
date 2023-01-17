@@ -1,7 +1,6 @@
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
+import { AuthContext } from "../Contexts/Auth";
 import Header from "../Components/Header";
-// import { requestLogin, setToken, requestData } from "../Services/LoginService";
 import '../Styles/Login.css';
 
 //remember me com token jwt
@@ -12,9 +11,10 @@ export default function Login() {
     passwordInput: "",
     button: true,
   });
-  const [checkbox, setCheckbox] = useState(false);
 
-  const navigate = useNavigate();
+  const { authenticated, login } = useContext(AuthContext);
+
+  const [checkbox, setCheckbox] = useState(false);
 
   useEffect(() => {
     validateUsernameAndPassword();
@@ -43,8 +43,9 @@ export default function Login() {
 
   const onBtnClick = async (event) => {
     event.preventDefault();
-    //valida login e senha
-    navigate('/users');
+    const { usernameInput, passwordInput } = form;
+
+    login(usernameInput, passwordInput);
   }
 
   return (
@@ -52,10 +53,10 @@ export default function Login() {
       <Header/>
       <div className="form">
         <form action="" 
-          // method="post"
           className="loginForm"
         >
           <div>
+            <p>{ String(authenticated) }</p>
             <div className="formLabel">
               <label htmlFor="usernameInput">Username</label>
             </div>
@@ -83,7 +84,7 @@ export default function Login() {
               />
             </div>
           </div>
-          <div>
+          <div className="checkboxClass">
             <input 
               type="checkbox" 
               name="checkbox" 

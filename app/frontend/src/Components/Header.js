@@ -1,22 +1,35 @@
+import React, { useEffect, useContext} from "react";
+import { AuthContext } from "../Contexts/Auth";
 import sharenergyLogo from '../Images/logo_color.png';
-import { useEffect } from "react";
 import Navigation from './Navigation';
 import '../Styles/Header.css';
 
 function Header() {
   useEffect(() => {
-    warning();  
+    navigationButtons();  
   }, []);
+
+  const { logout } =  useContext(AuthContext);
+
+  const handleLogout = () => {
+    logout();
+   }
   
-  const warning = () => {
+  const navigationButtons = () => {
     const { pathname } = window.location;
 
-    if (pathname !== '/') {
+    if (pathname !== '/login') {
       return(
-        <Navigation/>
+        <>
+          <Navigation/>
+          <div className="logoutButton">
+            <button onClick={handleLogout}>Logout</button>
+          </div>
+        </>
       )
     }    
   }
+
 
   return (
     <header>
@@ -31,9 +44,10 @@ function Header() {
             src={sharenergyLogo}
           />
         </div>
+  
       </div>
       {
-        warning()
+        navigationButtons()
       }
     </header>
   );

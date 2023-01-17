@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import 'dotenv/config';
 
-const MONGO_DB_URL = 'mongodb://localhost:3000/Users';
+const MONGO_DB_URL = 'mongodb://localhost:5000/Users';
 
 const connectToDatabase = (
   mongoDatabaseURI = process.env.MONGO_URI
