@@ -22,8 +22,9 @@ export const AuthProvider = ({children}) => {
   const login = async (username, password) => {
     const response = await createSession(username, password);
 
-    const loggedUser = response.data.user;
-    const token = response.data.token;
+    console.log(response.data);
+    const loggedUser = response.data.message.username;
+    const token = response.data.message.token;
 
     localStorage.setItem('user', JSON.stringify(loggedUser));
     localStorage.setItem('token', token);

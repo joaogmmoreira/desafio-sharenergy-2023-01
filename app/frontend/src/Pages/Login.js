@@ -14,11 +14,15 @@ export default function Login() {
 
   const { authenticated, login } = useContext(AuthContext);
 
-  const [checkbox, setCheckbox] = useState(false);
+  const [checkboxState, setCheckboxState] = useState(false);
 
   useEffect(() => {
     validateUsernameAndPassword();
   }, [form.usernameInput, form.passwordInput]);
+
+  useEffect(() => {
+    setCheckboxOnFirstLoad();
+  }, []);
 
   const [button, setButton] = useState(true);
 
@@ -41,6 +45,18 @@ export default function Login() {
     validateUsernameAndPassword();
   };
 
+  const setCheckboxOnFirstLoad = () => {
+    const recoverCheckbox = localStorage.getItem('checkbox');
+    if (!recoverCheckbox) {
+      localStorage.setItem('checkbox', checkboxState);
+    } 
+  }
+
+  const isChecked = () => {
+    setCheckboxState(!checkboxState);
+    localStorage.setItem('checkbox', !checkboxState);
+  };
+
   const onBtnClick = async (event) => {
     event.preventDefault();
     const { usernameInput, passwordInput } = form;
@@ -56,7 +72,6 @@ export default function Login() {
           className="loginForm"
         >
           <div>
-            <p>{ String(authenticated) }</p>
             <div className="formLabel">
               <label htmlFor="usernameInput">Username</label>
             </div>
@@ -89,7 +104,8 @@ export default function Login() {
               type="checkbox" 
               name="checkbox" 
               id="checkbox"
-              onChange={setCheckbox}
+              checked={checkboxState}
+              onChange={isChecked}
             />
             <label htmlFor="checkbox">Remember me</label>
           </div>

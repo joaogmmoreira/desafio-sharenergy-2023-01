@@ -1,11 +1,11 @@
-import mongoose from 'mongoose';
-import 'dotenv/config';
+const mongoose = require ('mongoose');
+const dotenv = require('dotenv/config');
 
-const MONGO_DB_URL = 'mongodb://localhost:5000/Users';
+const MONGO_DB_URL = process.env.MONGODB_URI;
 
 const connectToDatabase = (
-  mongoDatabaseURI = process.env.MONGO_URI
+  mongoDatabaseURI = process.env.MONGODB_URI
     || MONGO_DB_URL,
 ) => mongoose.connect(mongoDatabaseURI);
 
-export default connectToDatabase;
+module.exports = connectToDatabase;

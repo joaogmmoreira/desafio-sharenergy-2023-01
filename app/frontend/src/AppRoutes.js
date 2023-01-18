@@ -31,7 +31,8 @@ export default function AppRoutes() {
     <Routers>
       <AuthProvider>
         <Routes>
-          <Route exact path="/login" element={<Login />}/>
+          <Route exact path="/" element={<Navigate to="/login"/>} />     
+          <Route exact path="/login" element={ AuthContext.authenticated ? <Navigate to="/users"/> : <Login />}/>
           <Route exact path="/users" element={<Private><Users /></Private>}/>
           <Route exact path="/cats" element={<Private><Cats /></Private>}/>
           <Route exact path="/dogs" element={<Private><Dogs /></Private>}/>

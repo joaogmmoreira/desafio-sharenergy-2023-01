@@ -20,12 +20,12 @@ function Header() {
 
     if (pathname !== '/login') {
       return(
-        <>
+        <div className="logoutHeader">
           <Navigation/>
           <div className="logoutButton">
             <button onClick={handleLogout}>Logout</button>
           </div>
-        </>
+        </div>
       )
     }    
   }

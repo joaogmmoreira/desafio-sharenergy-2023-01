@@ -16,9 +16,9 @@ export default function Customers() {
   const fetchCustomers = async () => {
     const response = await getCustomers();
 
-    const newCustomers = response.data;
+    const { customers } = response.data.customers;
 
-    setCustomers(newCustomers);
+    setCustomers(customers);
     setLoading(false);
 
     const token = localStorage.getItem('token');
