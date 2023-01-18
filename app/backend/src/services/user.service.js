@@ -8,7 +8,7 @@ const validateUser = async (username, password) => {
   const decryptedPassword = decryptPassword(password, user.password);
 
   if (decryptedPassword) {
-    const token = jwt.createToken(user.username, user._id);
+    const token = jwt.createToken({ id: user._id, username: user.username });
   
     return { type: null, message: {
       token,

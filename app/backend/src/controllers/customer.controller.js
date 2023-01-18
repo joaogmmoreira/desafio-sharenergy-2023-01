@@ -20,16 +20,22 @@ const createCustomer = async (req, res) => {
   return res.status(type).json({ message })
 };
 
-const getCustomers = async (req, res) => {
-  const { authorization } = req.headers;
-  console.log(authorization);
+const getCustomers = async (req, res) => {  
   const customers = await customerService.getCustomers();
 
   return res.status(200).json({ customers })
 };
 
+const deleteCustomer = async (req, res) => {
+  const id = req.params;
+  
+  const deleted = await customerService.deleteCustomer(id);
+
+  return res.status(200).json({ deleted });
+};
+
 module.exports = {
-  // validateUser,
   createCustomer,
   getCustomers,
+  deleteCustomer,
 }

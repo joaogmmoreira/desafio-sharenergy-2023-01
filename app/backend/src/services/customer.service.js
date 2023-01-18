@@ -16,7 +16,13 @@ const getCustomers = async () => {
   const customers = await customerModel.find({});
 
   return { type: null, customers };
-}
+};
+
+const deleteCustomer = async (id) => {
+  const deletedCustomer = await customerModel.deleteOne({id});
+
+  return { type: null, deletedCustomer }
+};
 
 module.exports = {
   createCustomer,

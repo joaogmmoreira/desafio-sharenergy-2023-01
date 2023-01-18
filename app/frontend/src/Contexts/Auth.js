@@ -1,6 +1,6 @@
 import React, { useState, useEffect, createContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { api, createSession } from '../Services/Api';
+import { setToken, createSession } from '../Services/Api';
 
 export const AuthContext =  createContext();
 
@@ -22,14 +22,13 @@ export const AuthProvider = ({children}) => {
   const login = async (username, password) => {
     const response = await createSession(username, password);
 
-    console.log(response.data);
     const loggedUser = response.data.message.username;
     const token = response.data.message.token;
 
     localStorage.setItem('user', JSON.stringify(loggedUser));
     localStorage.setItem('token', token);
 
-    api.defaults.headers.Authorization = `Bearer ${token}`;
+    setToken(token);
     
     setUser(loggedUser);
     navigate('/users');
@@ -37,7 +36,7 @@ export const AuthProvider = ({children}) => {
   };
   
   const logout = () => {
-    api.defaults.headers.Authorization = `Bearer ${null}`;
+    setToken(null);
     setUser(null);
     localStorage.removeItem('user');
     localStorage.removeItem('token');
@@ -47,7 +46,6 @@ export const AuthProvider = ({children}) => {
   return(
     <AuthContext.Provider 
       value={{ authenticated: !!user, user, loading, login, logout }}
-      // casting de boolean
     >
       {children}
     </AuthContext.Provider>
