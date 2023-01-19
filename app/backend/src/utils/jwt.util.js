@@ -6,7 +6,6 @@ const createToken = (data) => {
     expiresIn: '7d',
     algorithm: 'HS256',
   });
-  console.log(token);
   return token;
 };
 
