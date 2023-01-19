@@ -19,7 +19,7 @@ const getCustomers = async () => {
 };
 
 const deleteCustomer = async (id) => {
-  const deletedCustomer = await customerModel.deleteOne({id});
+  const deletedCustomer = await customerModel.deleteOne({ _id: id.id });
 
   return { type: null, deletedCustomer }
 };
@@ -27,4 +27,5 @@ const deleteCustomer = async (id) => {
 module.exports = {
   createCustomer,
   getCustomers,
+  deleteCustomer,
 };

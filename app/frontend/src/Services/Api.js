@@ -5,7 +5,7 @@ export const api = axios.create({
 });
 
 export const setToken = (token) => {
-  api.defaults.headers.common.Authorization = `Bearer ${token}`;
+  api.defaults.headers.common.Authorization = `${token}`;
 };
 
 export const createSession = async (username, password) => {
@@ -20,13 +20,14 @@ export const getCustomers = async (token) => {
   });
 };
 
-export const deleteCustomer = async (id, token) => {
-  return api.delete('customers', {
-    headers: {
-      Authorization: token
+export const registerCustomer = (data) => {
+  return api.post('/customers', {data});
+};
+
+export const apiDeleteCustomer = async (id, token) => {
+  return api.delete('/customers', {
+    data: {
+      id
     },
-    params: {
-      id,
-    }
-  })
+  });
 }

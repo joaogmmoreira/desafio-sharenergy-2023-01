@@ -1,1 +1,48 @@
 /* fazer o css */
+.customers {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.customersTable {
+  width: 80%;
+}
+
+thead {
+  background-color: #8d99ae;
+}
+
+td {
+  text-align: center;
+  background-color: #8d99ae;
+}
+
+table {
+  width: 100%;
+}
+
+.registerCustomers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  flex-direction: row;
+  width: 50%;
+  margin: auto;
+}
+
+h2 {
+  text-align: center;
+}
+
+.sbtBtn {
+  margin: 5px;
+}
+
+.searchBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -4,19 +4,19 @@ const { verifyToken } = require('../utils/jwt.util');
 
 const customerRouter = express.Router();
 
-customerRouter.post('/customers', (req, res, next) => {
-  verifyToken(req, res, next);
-}, (req, res) => {
-  createCustomer(req, res);
-});
-
 customerRouter.get('/customers', (req, res, next) => {
   verifyToken(req, res, next);
 }, (req, res) => {
   getCustomers(req, res);
 });
 
-customerRouter.delete('/customer', (req, res, next) => {
+customerRouter.post('/customers', (req, res, next) => {
+  verifyToken(req, res, next);
+}, (req, res) => {
+  createCustomer(req, res);
+});
+
+customerRouter.delete('/customers', (req, res, next) => {
   verifyToken(req, res, next);
 }, (req, res) => {
   deleteCustomer(req,res);

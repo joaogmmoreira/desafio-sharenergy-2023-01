@@ -2,7 +2,7 @@ const customerValidation = require('../validations/user.validation');
 const customerService = require('../services/customer.service');
 
 const createCustomer = async (req, res) => {
-  const { fullName, email, telephone, address, ssn } = req.body;
+  const { fullName, email, telephone, address, ssn } = req.body.data;
 
   const bodyValidation = customerValidation.validateBody(fullName, email, telephone, address, ssn);
 
@@ -20,14 +20,16 @@ const createCustomer = async (req, res) => {
   return res.status(type).json({ message })
 };
 
-const getCustomers = async (req, res) => {  
+const getCustomers = async (_req, res) => {  
   const customers = await customerService.getCustomers();
 
   return res.status(200).json({ customers })
 };
 
 const deleteCustomer = async (req, res) => {
-  const id = req.params;
+  const id = req.body;
+  console.log(id);
+  // console.log('req', req);
   
   const deleted = await customerService.deleteCustomer(id);
 

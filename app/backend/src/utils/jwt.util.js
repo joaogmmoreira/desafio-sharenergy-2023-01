@@ -2,7 +2,6 @@ require('dotenv/config');
 const jwt = require('jsonwebtoken');
 
 const createToken = (data) => {
-  console.log(data);
   const token = jwt.sign({ data }, process.env.JWT_SECRET, {
     expiresIn: '7d',
     algorithm: 'HS256',
@@ -13,6 +12,7 @@ const createToken = (data) => {
 
 const verifyToken = (req, res, next) => {
   const token = req.headers.authorization;
+  // console.log('verifyToken', token);
 
   if (!token) {
     res.status(400).json('Token not found');

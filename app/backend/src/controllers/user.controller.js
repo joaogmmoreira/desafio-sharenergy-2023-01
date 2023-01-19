@@ -3,8 +3,6 @@ const userValidation = require('../validations/user.validation');
 
 const validateUser = async (req, res) => {
   const { username, password } = req.body;
-  console.log('oi', req.params);
-  console.log('tchau', req.body)
   const bodyValidation = userValidation.validateBody(username, password);
   // console.log(bodyValidation);
 

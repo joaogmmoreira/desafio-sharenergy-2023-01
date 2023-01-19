@@ -9,9 +9,9 @@ export default function CustomerRow(props) {
       <td>
         <button
         value={props.id}
-        onClick={props.deleteCustomer}
+        onClick={() => props.deleteCustomer(props.id)}
         >
-          X
+          Delete
         </button>
       </td>
     </tr>     

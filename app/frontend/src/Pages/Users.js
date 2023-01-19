@@ -17,16 +17,19 @@ export default function Users() {
     searchBoxInput: "",
   });
 
+  const generateUsers = async () => {
+    const users = await fetchUsersAPI(page);
+    setLoading(false);
+    setUserData(users.results);
+    setUserData2(users.results);      
+
+    return users;
+  }
+
   useEffect(() => {
-    const generateUsers = async () => {
-      const users = await fetchUsersAPI(page);
-      setLoading(false);
-      setUserData(users.results);
-      setUserData2(users.results);      
-  
-      return users;
-    }
-    generateUsers();
+    (async () => {
+      generateUsers();
+    })();
   }, []);
 
   useEffect(() => {
@@ -34,13 +37,11 @@ export default function Users() {
   }, [search.searchBoxInput]);
 
   useEffect(() => {
-    const generateUsers = async () => {
-      const users = await fetchUsersAPI(page);
-      setUserData(users.results);
-      setUserData2(users.results);
-    }    
-    generateUsers();
+    (async () => {
+      generateUsers();
+    })();
     disablePreviousButton();
+    generateUsers();
   }, [page]);
 
   const renderUsers = () => {
@@ -92,7 +93,12 @@ export default function Users() {
     if (innerText === 'Previous') setPage(page - 1);     
     
     if (innerText === 'Next') setPage(page + 1); 
-  }
+
+    setSearch({
+      searchBoxInput: "",
+    })
+  };
+  
 
   const disablePreviousButton = () => {
     if (page === 1) {
@@ -112,6 +118,7 @@ export default function Users() {
             name="searchBoxInput" 
             id="searchBoxInput" 
             type="text"
+            value={search.searchBoxInput}
             onChange={onInputChange}
           />          
         </form>
@@ -145,4 +152,4 @@ export default function Users() {
       </div> 
     </>
   )
-}
+};
