@@ -4,7 +4,6 @@ const userValidation = require('../validations/user.validation');
 const validateUser = async (req, res) => {
   const { username, password } = req.body;
   const bodyValidation = userValidation.validateBody(username, password);
-  // console.log(bodyValidation);
 
   if (bodyValidation.type) {  
     return res.status(bodyValidation.type).json({ message: bodyValidation.message });

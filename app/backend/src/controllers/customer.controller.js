@@ -28,8 +28,6 @@ const getCustomers = async (_req, res) => {
 
 const deleteCustomer = async (req, res) => {
   const id = req.body;
-  console.log(id);
-  // console.log('req', req);
   
   const deleted = await customerService.deleteCustomer(id);
 

@@ -12,7 +12,6 @@ const createToken = (data) => {
 
 const verifyToken = (req, res, next) => {
   const token = req.headers.authorization;
-  // console.log('verifyToken', token);
 
   if (!token) {
     res.status(400).json('Token not found');

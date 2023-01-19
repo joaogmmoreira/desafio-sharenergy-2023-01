@@ -36,7 +36,6 @@ export default function Customers() {
     setToken(token);
     
     const response = await getCustomers(token);
-    // console.log(response);
     
     const { customers } = response.data.customers;
     
