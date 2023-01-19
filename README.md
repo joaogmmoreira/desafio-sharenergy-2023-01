@@ -1,4 +1,4 @@
-# Intruções para rodar o projeto localmente
+# Instruções para rodar o projeto localmente
 - No seu terminal utilize o comando git clone com a chave SSH desse repositório do GitHub para clonar o repositório.
 - Certifique-se que não haverá nenhuma outra aplicação usando as portas `3000` e `5000` da sua máquina.
 
