@@ -14,4 +14,4 @@
 - Agora o backend estará rodando.
 
 ### Vídeo
-- Link para o vídeo no [Youtube](`inserir link`).
+- Link para o vídeo no [Youtube](https://www.youtube.com/watch?v=ZrjHBaOOXW4).
