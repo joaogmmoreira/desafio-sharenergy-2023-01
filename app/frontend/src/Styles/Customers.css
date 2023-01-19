@@ -6,8 +6,17 @@
   align-items: center;
 }
 
+.title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+}
+
 .customersTable {
   width: 80%;
+  margin-bottom: 100px;
 }
 
 thead {
@@ -27,7 +36,7 @@ table {
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: left;
+  text-align: center;
   flex-direction: row;
   width: 50%;
   margin: auto;
@@ -45,4 +54,11 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#searchBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }

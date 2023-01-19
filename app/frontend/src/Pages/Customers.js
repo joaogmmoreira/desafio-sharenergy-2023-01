@@ -134,7 +134,7 @@ export default function Customers() {
             <h2>Register Customers</h2>
             <div className="formOne">
               <div>
-                <label htmlFor="fullName">Full Name &nbsp;</label>
+                <label htmlFor="fullName">Full Name</label>
               </div>       
               <input 
                 name="fullName" 
@@ -146,7 +146,7 @@ export default function Customers() {
             </div>
             <div className="formEmail">
               <div>
-                <label htmlFor="email">Email: &nbsp;</label>
+                <label htmlFor="email">Email</label>
               </div>        
               <input 
                 name="email" 
@@ -158,7 +158,7 @@ export default function Customers() {
             </div>
             <div className="formTelephone">
               <div>
-                <label htmlFor="telephone">Telephone: &nbsp;</label>
+                <label htmlFor="telephone">Telephone</label>
               </div>        
               <input 
                 name="telephone" 
@@ -170,7 +170,7 @@ export default function Customers() {
               </div>
               <div className="formAddress">
                 <div>
-                  <label htmlFor="address">Address: &nbsp;</label>
+                  <label htmlFor="address">Address</label>
                 </div>         
                 <input 
                   name="address" 
@@ -182,7 +182,7 @@ export default function Customers() {
               </div>
               <div className="formSSN">
                 <div>
-                  <label htmlFor="ssn">SSN: &nbsp;</label> 
+                  <label htmlFor="ssn">SSN</label> 
                 </div>
                 <input 
                   name="ssn" 
@@ -205,10 +205,10 @@ export default function Customers() {
           </form>
         </div>
       </div>
-      <div id="searchBox">
+      <div id="searchBar">
         <form>
           <div>
-            <label htmlFor="searchBoxInput">Search: &nbsp;</label>          
+            <label htmlFor="searchBoxInput">Search</label>          
           </div>         
           <input 
             name="searchBoxInput" 
