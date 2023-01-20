@@ -10,6 +10,7 @@
 ### Backend
 - No terminal vá até a pasta `desafio-sharenergy-2023-01/app/backend` e utilize o comando `npm install`.
 - Crie um arquivo `.env` dentro da pasta `desafio-sharenergy-2023-01/app/backend` e copie o conteúdo do `.env.example` para o `.env`.
+- Substitua `<secret>` por `yourSecret` e `<password>` por `joao123456`
 - Rode o comando `npm run dev` no terminal.
 - Agora o backend estará rodando.
 
